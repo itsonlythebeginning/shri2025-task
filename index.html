@@ -253,9 +253,13 @@
           ],
         },
       };
-      for (let i = 0; i < 6; ++i) {
-        TABS.all.items = [...TABS.all.items, ...TABS.all.items];
+
+      let items = TABS.all.items;
+      for (let i = 0; i < 6; i++) {
+        items = items.concat(items);
       }
+      TABS.all.items = items;
+
       const TABS_KEYS = Object.keys(TABS);
 
       function Main() {
@@ -279,7 +283,7 @@
 
         let sizes = [];
         const onSize = (size) => {
-          sizes = [...sizes, size];
+          sizes.push(size);
         };
 
         React.useEffect(() => {
@@ -475,7 +479,7 @@
             <Main />
           </>,
         );
-      }, 100);
+      }, 0);
     </script>
   </body>
 </html>
