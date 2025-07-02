@@ -260,7 +260,7 @@
       }
       TABS.all.items = items;
 
-      const TABS_KEYS = Object.keys(TABS);
+      let TABS_KEYS = Object.keys(TABS);
 
       function Main() {
         const ref = React.useRef();
@@ -281,7 +281,7 @@
           setActiveTab(event.target.value);
         };
 
-        const sizes = [];
+        let sizes = [];
         const onSize = (size) => {
           sizes.push(size);
         };
